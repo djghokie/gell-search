@@ -1,0 +1,21 @@
+{
+  "name": "gell-search",
+  "version": "0.0.1",
+  "description": "gell based implementation of application search",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "keywords": [
+    "gell",
+    "search"
+  ],
+  "author": "Daniel Gay",
+  "license": "ISC",
+  "dependencies": {
+    "gell": "^1.17.0"
+  },
+  "devDependencies": {
+    "gell-runtime": "^0.5.3"
+  }
+}
