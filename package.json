@@ -16,6 +16,8 @@
     "gell": "^1.17.0"
   },
   "devDependencies": {
-    "gell-runtime": "^0.5.3"
+    "gell-http": "^0.7.0",
+    "gell-runtime": "^0.5.3",
+    "node-mocks-http": "^1.13.0"
   }
 }
