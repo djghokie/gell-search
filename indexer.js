@@ -73,13 +73,11 @@ module.exports = function* searchIndexer(indexedAttributes, deps) {
 	assert(_.isArray(indexedAttributes), 'indexedAttributes array is required');
 	assert(deps, 'deps requried by search indexer');
 
-	assert(deps.get('$put'), '$put dependency not defined');
+	// assert(deps.get('$put'), '$put dependency not defined');
 
-	let _dispacher = new State();
-	let conf = new Configuration();
-	let events = new EventEmitter();
-
-	let event = yield { state: _dispacher, conf, events };
+	const _dispacher = new State();
+	const conf = new Configuration();
+	const events = new EventEmitter();
 
 	async function dispatch(target_) {
 		assert(target_);
@@ -90,6 +88,8 @@ module.exports = function* searchIndexer(indexedAttributes, deps) {
 
 		return Promise.all(searchItems.map(i => $put.next(i).value));
 	}
+
+	let event = yield { state: _dispacher, conf, events };
 
 	while (true) event = yield dispatch(event);
 }
