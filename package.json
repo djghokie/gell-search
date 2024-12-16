@@ -14,11 +14,12 @@
   "license": "ISC",
   "dependencies": {
     "gell": "^1.18.0",
-    "gell-domain": "^0.0.1"
+    "gell-aws-dynamodb": "^0.24.0",
+    "gell-domain": "^0.2.1"
   },
   "devDependencies": {
-    "gell-http": "^0.7.0",
-    "gell-runtime": "^0.5.3",
+    "gell-http": "^0.8.0",
+    "gell-runtime": "^0.6.1",
     "node-mocks-http": "^1.13.0"
   }
 }
