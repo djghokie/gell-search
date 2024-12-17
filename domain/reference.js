@@ -1,9 +1,30 @@
 const _ = require('lodash');
 
-const { State } = require('gell');
 const Projection = require('gell/lib/projection');
 
-exports.projectTarget = function(target_, model) {
+const javascript = require('gell-domain/binding/javascript');
+
+const model = {
+    attributes: {
+        id: {
+            type: 'uuid',
+            description: 'id of the target item'
+        },
+        termAttribute: {
+            type: 'string',
+            description: 'name of searchable target attribute'
+        },
+    }
+}
+
+/**
+ * WIP: only used in ps-transportation/test/event/test-index
+ * 
+ * @param {*} target_ 
+ * @param {*} model 
+ * @returns 
+ */
+function projectTarget(target_, model) {
 	const { id='id', terms, context=[] } = model;
 
 	const searchProjection_ = new Projection(target_);
@@ -28,6 +49,10 @@ exports.projectTarget = function(target_, model) {
 	return searchProjection_;
 }
 
-exports.materialize = function(ref$, klass=State) {
-	const ref_ = new State();
+module.exports = {
+    model,
+
+    materialize: session$ => javascript.materialize(session$, model),
+
+    projectTarget
 }
