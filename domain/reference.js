@@ -14,6 +14,10 @@ const model = {
             type: 'string',
             description: 'name of searchable target attribute'
         },
+        application: {
+            type: 'string',
+            description: 'segments search for a particular application/environment'
+        }
     }
 }
 
